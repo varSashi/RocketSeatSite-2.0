@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block head %}
+<title>Aulas</title>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+        <section class="cards">
+            {% for item in items %}
+            <div class="card1" id="{{item.id}}">
+                <div class="card_image-container {{ 'featured-wrapper' if item.featured }} ">
+                    <img src="https://img.youtube.com/vi/{{item.id}}/maxresdefault.jpg" alt="{{item.title}}">
+                    {% if item.featured %}
+                        <div class="featured">Featured</div>
+                    {% endif %}
+                </div>
+                <div class="card_content">
+                    <p>{{item.title}}</p>
+                </div>
+                <div class="card_info">
+                    <p>{{item.duration}}</p>
+                    <p class="class card_price">{{item.price}}</p>
+                </div>
+            </div>
+            {% endfor %}
+        </section>
+
+
+    <script src="/scripts.js"></script>
+        
+{% endblock %}
